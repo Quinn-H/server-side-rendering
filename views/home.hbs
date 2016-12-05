@@ -1,4 +1,4 @@
-{{> header}}
+<!-- {{> header}}
 
 {{#if showList}}
   Fruit!
@@ -10,4 +10,12 @@
   Ok, now you can <a href="/">hide the list</a>.
 {{else}}
   <a href="/?showlist=true">Show me the list</a>, please.
-{{/if}}
+{{/if}} -->
+
+
+<div class="name">
+  {{> header}}
+  {{#each repos}}
+  {{name}}
+  {{/each}}
+</div>
