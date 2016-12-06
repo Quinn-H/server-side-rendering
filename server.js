@@ -17,4 +17,4 @@ app.set('views', path.join(__dirname, 'views'))
 
 // Routes
 app.get('/', routes.getRepoName)
-// app.get('/details/:id', routes.getId)
+app.get('/details/:id', routes.getId)

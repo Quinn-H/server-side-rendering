@@ -4,8 +4,8 @@ var db = require('./db')
 // var repos = require('./github')
 
 module.exports = {
-  getRepoName: getRepoName
-  // getId: getId
+  getRepoName: getRepoName,
+  getId: getId
 }
 
 
@@ -16,10 +16,11 @@ function getRepoName(req, res) {
   })
 }
 
-// function getId(req, res) {
-//   var data = repos.filter(function(repo) {
-//     return repo.id == req.params.id
-//   })
-//
-//     res.render('details', data[0])
-// }
+function getId(req, res) {
+  db.getData(function(err, repos){
+    var matching = repos.filter(function(repo) {
+      return repo.id == req.params.id
+    })
+    res.render('details', matching[0])
+  })
+}

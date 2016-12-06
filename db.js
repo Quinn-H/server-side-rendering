@@ -3,7 +3,8 @@ var path = require('path')
 
 module.exports = {
   getHomeData: getHomeData,
-  getName: getName
+  getName: getName,
+  getData: getData
 }
 // var repos = require('./github')
 
@@ -38,8 +39,27 @@ function getName (callback) {
 
 //To read github.json
 function getData (callback) {
-  fs.readFile(dataPath, function(err, data){
+
+  // Read the contents of the JSON file.
+  fs.readFile(dataPath, function (err, data) {
+
+    // If readFile gives an error pass on that error.
+    if (err) {
+      callback(err)
+      return
+    }
+
+    // Parse file contents into a javascript object.
     var repos = JSON.parse(data)
+
+    // Give the javascript object to the callback.
     callback(null, repos)
   })
+
+  // fs.readFile(dataPath, parseJSON)
+  //
+  // function parseJSON(err, data){
+  //   var repos = JSON.parse(data)
+  //   callback(null, repos)
+  // }
 }
