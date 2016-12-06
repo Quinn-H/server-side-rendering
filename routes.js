@@ -1,17 +1,25 @@
 var db = require('./db')
 
+
+// var repos = require('./github')
+
 module.exports = {
-  // home: home,
-  getReposName: getReposName
+  getRepoName: getRepoName
+  // getId: getId
 }
 
-// function home (req, res) {
-//   var data = db.getHomeData()
-//   data.showList = req.query.showlist
-//   res.render('home', data)
+
+//To get Repos names
+function getRepoName(req, res) {
+  db.getName(function(err, vm){
+    res.render('home', vm)
+  })
+}
+
+// function getId(req, res) {
+//   var data = repos.filter(function(repo) {
+//     return repo.id == req.params.id
+//   })
+//
+//     res.render('details', data[0])
 // }
-
-function getReposName (req, res) {
-  var data = db.getName()
-  res.render('home', data)
-}

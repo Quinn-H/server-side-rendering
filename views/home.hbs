@@ -1,4 +1,4 @@
-<!-- {{> header}}
+  <!-- {{> header}}
 
 {{#if showList}}
   Fruit!
@@ -13,9 +13,11 @@
 {{/if}} -->
 
 
-<div class="name">
+<div class="home">
   {{> header}}
   {{#each repos}}
-  {{name}}
+  <p>
+  <a href="/details/{{id}}">{{name}}</a>
+</p>
   {{/each}}
 </div>

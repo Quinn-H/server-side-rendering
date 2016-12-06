@@ -16,4 +16,5 @@ app.set('view engine', 'hbs')
 app.set('views', path.join(__dirname, 'views'))
 
 // Routes
-app.get('/', routes.getReposName)
+app.get('/', routes.getRepoName)
+// app.get('/details/:id', routes.getId)
